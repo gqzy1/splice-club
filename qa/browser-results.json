@@ -1,0 +1,39 @@
+[
+  {
+    "width": 1440,
+    "errors": [],
+    "overflow": false,
+    "flow": "PASS",
+    "drag": true,
+    "touch": false
+  },
+  {
+    "width": 768,
+    "errors": [],
+    "overflow": false,
+    "flow": "PASS",
+    "drag": false,
+    "touch": false
+  },
+  {
+    "width": 390,
+    "errors": [],
+    "overflow": false,
+    "flow": "PASS",
+    "drag": false,
+    "touch": true
+  },
+  {
+    "reducedMotion": "PASS"
+  },
+  {
+    "keyboard": "PASS",
+    "focusOutline": "solid",
+    "animationObservation": {
+      "frames": 83,
+      "maxIntervalMs": 33.30000000000007,
+      "meanIntervalMs": 16.867469879518076,
+      "environment": "Headless Chromium; GPU disabled; not a real-device fps guarantee"
+    }
+  }
+]

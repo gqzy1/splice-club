@@ -8,6 +8,11 @@ A playful collaborative idea-fusion playground on GenLayer. Two wallet contribut
 
 ## Play
 
+First visits open a seven-step **OFFCHAIN PLAYGROUND TUTORIAL**. Pick or drag local ingredients, replace/remove them, activate the machine, flip a creation and explore its clickable lineage. Skip at any time; HOW TO PLAY restarts it. Completion or skipping is remembered locally. Animation takes 2.2 seconds and can be skipped; reduced-motion users reveal immediately.
+
+Local objects have a separate type, state and drag payload. They never enter gallery, transaction, history or contribution data. No wallet, model request, consensus or onchain registration occurs in the tutorial. The direct `?w=1` route preserves the existing verified-read entry rather than forcing the introduction.
+
+
 - **Playground:** drag a seed into the mix, or tap “Splice me” on touch devices. Choose two seeds from different creators. Remove or replace selections.
 - **Gallery:** wallet-free public reads, seed/fusion views, lightweight category filters, pagination, refresh and details.
 - **Creation cards:** deterministic CSS/SVG glyphs, vivid palettes, IDs, text, contributor identity and features. These visuals are decorative identity patterns, not AI-generated images or onchain image assets.
@@ -47,5 +52,7 @@ The transaction hash and request ID survive reload in browser local storage. A p
 After a real deployment and successful example, update `src/config.ts` with the real contract address, status and verified work ID. Keep source digest exact and archive real evidence first. Run the checks, browser/wallet acceptance, build and publish only within the newly authorized phase. No fake address or transaction is used to make the UI look active.
 
 The read-only compatibility diagnostic is `node scripts/check-stable.mjs`. It submits no transaction and uses no wallet. Its current response is archived in [STABLE_COMPATIBILITY.json](STABLE_COMPATIBILITY.json).
+
+Browser acceptance and screenshots: [FAST_1B_REPORT.md](FAST_1B_REPORT.md).
 
 See [DEMO.md](DEMO.md), [TEST_RESULTS.md](TEST_RESULTS.md), [SOURCE_PROVENANCE.md](SOURCE_PROVENANCE.md) and [intelligent-contract/DEPLOYMENT_MANIFEST_STUDIONET.md](intelligent-contract/DEPLOYMENT_MANIFEST_STUDIONET.md). MIT License.

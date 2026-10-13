@@ -4,7 +4,7 @@ import App from '../src/App';
 import {DEPLOYMENT} from '../src/config';
 import {work} from './fixtures';
 vi.mock('../src/chain',()=>({gallery:vi.fn(async()=>[work(),work(2,'0x'+'b'.repeat(40))]),pending:()=>null,lineage:vi.fn(),write:vi.fn(),connect:vi.fn(),walletError:(e:Error)=>e.message}));
-beforeEach(()=>{cleanup();DEPLOYMENT.address=null;history.replaceState({},'', '/');HTMLDialogElement.prototype.showModal=function(){this.setAttribute('open','');};HTMLDialogElement.prototype.close=function(){this.removeAttribute('open');this.dispatchEvent(new Event('close'));};});
+beforeEach(()=>{cleanup();localStorage.setItem('splice.club.tutorial.v1','done');DEPLOYMENT.address=null;history.replaceState({},'', '/');HTMLDialogElement.prototype.showModal=function(){this.setAttribute('open','');};HTMLDialogElement.prototype.close=function(){this.removeAttribute('open');this.dispatchEvent(new Event('close'));};});
 it('shows honest empty gallery and disabled real writes',()=>{render(<App/>);expect(screen.getByText(/No pretend creations/)).toBeTruthy();expect((screen.getByRole('button',{name:/LET’S SPLICE/}) as HTMLButtonElement).disabled).toBe(true);});
 it('demo is explicitly unverified',()=>{history.replaceState({},'','/?w=1');render(<App/>);expect(screen.getByText(/NOT YET VERIFIED/)).toBeTruthy();});
 it('opens accessible seed form for drafting',()=>{render(<App/>);fireEvent.click(screen.getByRole('button',{name:/PLANT A SEED/}));expect(screen.getByLabelText('Name')).toBeTruthy();expect((screen.getByRole('button',{name:/REGISTER ONCHAIN/}) as HTMLButtonElement).disabled).toBe(true);});
