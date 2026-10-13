@@ -1,0 +1,39 @@
+[
+  {
+    "width": 1440,
+    "fusionStageShiftPx": 0
+  },
+  {
+    "width": 1440,
+    "reactorControlsClearancePx": 32.703125,
+    "localStudyEntry": "PASS",
+    "hoverTransform": "matrix3d(0.972528, -0.232786, 1.21597e-07, -1.7371e-10, 0.232786, 0.972528, 1.27633e-07, -1.82333e-10, -1.47968e-07, -9.58202e-08, 1, -0.00142857, -0.0447969, -0.187151, -2.45614e-08, 1)"
+  },
+  {
+    "width": 768,
+    "fusionStageShiftPx": 0
+  },
+  {
+    "width": 768,
+    "reactorControlsClearancePx": 15.3125,
+    "localStudyEntry": "PASS",
+    "hoverTransform": "matrix3d(0.970296, -0.241922, 0, 0, 0.241922, 0.970296, 0, 0, 0, 0, 1, -0.00142857, 0, 0, 0, 1)"
+  },
+  {
+    "width": 390,
+    "touchSwipePx": 295
+  },
+  {
+    "width": 390,
+    "fusionStageShiftPx": 0
+  },
+  {
+    "width": 390,
+    "reactorControlsClearancePx": 10.8125,
+    "localStudyEntry": "PASS",
+    "hoverTransform": "matrix3d(0.983007, -0.183571, 0, 0, 0.183571, 0.983007, 0, 0, 0, 0, 1, -0.00142857, -0.0352278, -0.188642, 0, 1)"
+  },
+  {
+    "reducedMotionPodAnimation": "none"
+  }
+]

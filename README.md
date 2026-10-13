@@ -53,6 +53,6 @@ After a real deployment and successful example, update `src/config.ts` with the 
 
 The read-only compatibility diagnostic is `node scripts/check-stable.mjs`. It submits no transaction and uses no wallet. Its current response is archived in [STABLE_COMPATIBILITY.json](STABLE_COMPATIBILITY.json).
 
-Browser acceptance and screenshots: [FAST_1B_REPORT.md](FAST_1B_REPORT.md).
+Current visual identity and browser acceptance: [FAST_1C_REPORT.md](FAST_1C_REPORT.md). The Hyperpop Creative Lab puts the working reactor in the immersive hero, with local-study entry cards, chromatic material, a collectible shelf and an interactive lineage room. The earlier [FAST_1B_REPORT.md](FAST_1B_REPORT.md) remains the historical functional checkpoint.
 
 See [DEMO.md](DEMO.md), [TEST_RESULTS.md](TEST_RESULTS.md), [SOURCE_PROVENANCE.md](SOURCE_PROVENANCE.md) and [intelligent-contract/DEPLOYMENT_MANIFEST_STUDIONET.md](intelligent-contract/DEPLOYMENT_MANIFEST_STUDIONET.md). MIT License.

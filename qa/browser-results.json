@@ -30,9 +30,9 @@
     "keyboard": "PASS",
     "focusOutline": "solid",
     "animationObservation": {
-      "frames": 83,
-      "maxIntervalMs": 33.30000000000007,
-      "meanIntervalMs": 16.867469879518076,
+      "frames": 84,
+      "maxIntervalMs": 16.799999999999955,
+      "meanIntervalMs": 16.66547619047619,
       "environment": "Headless Chromium; GPU disabled; not a real-device fps guarantee"
     }
   }
