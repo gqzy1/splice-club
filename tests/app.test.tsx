@@ -1,0 +1,12 @@
+import {beforeEach,it,expect,vi} from 'vitest';
+import {render,screen,fireEvent,cleanup} from '@testing-library/react';
+import App from '../src/App';
+import {DEPLOYMENT} from '../src/config';
+import {work} from './fixtures';
+vi.mock('../src/chain',()=>({gallery:vi.fn(async()=>[work(),work(2,'0x'+'b'.repeat(40))]),pending:()=>null,lineage:vi.fn(),write:vi.fn(),connect:vi.fn(),walletError:(e:Error)=>e.message}));
+beforeEach(()=>{cleanup();DEPLOYMENT.address=null;history.replaceState({},'', '/');HTMLDialogElement.prototype.showModal=function(){this.setAttribute('open','');};HTMLDialogElement.prototype.close=function(){this.removeAttribute('open');this.dispatchEvent(new Event('close'));};});
+it('shows honest empty gallery and disabled real writes',()=>{render(<App/>);expect(screen.getByText(/No pretend creations/)).toBeTruthy();expect((screen.getByRole('button',{name:/LET’S SPLICE/}) as HTMLButtonElement).disabled).toBe(true);});
+it('demo is explicitly unverified',()=>{history.replaceState({},'','/?w=1');render(<App/>);expect(screen.getByText(/NOT YET VERIFIED/)).toBeTruthy();});
+it('opens accessible seed form for drafting',()=>{render(<App/>);fireEvent.click(screen.getByRole('button',{name:/PLANT A SEED/}));expect(screen.getByLabelText('Name')).toBeTruthy();expect((screen.getByRole('button',{name:/REGISTER ONCHAIN/}) as HTMLButtonElement).disabled).toBe(true);});
+it('click selection supports mobile and two inputs',async()=>{DEPLOYMENT.address=('0x'+'a'.repeat(40)) as `0x${string}`;render(<App/>);const buttons=await screen.findAllByRole('button',{name:/Splice me/});fireEvent.click(buttons[0]);fireEvent.click(buttons[1]);expect(screen.getByRole('button',{name:'Remove Moon Laundry 1'})).toBeTruthy();expect(screen.getByRole('button',{name:'Remove Moon Laundry 2'})).toBeTruthy();expect((screen.getByRole('button',{name:/LET’S SPLICE/}) as HTMLButtonElement).disabled).toBe(false);});
+it('drop uses the same selection path as touch',async()=>{DEPLOYMENT.address=('0x'+'a'.repeat(40)) as `0x${string}`;const {container}=render(<App/>);await screen.findAllByRole('button',{name:/Splice me/});const slot=container.querySelector('.drop-slot')!;fireEvent.drop(slot,{dataTransfer:{getData:()=> '2'}});expect(screen.getByRole('button',{name:'Remove Moon Laundry 2'})).toBeTruthy();});
