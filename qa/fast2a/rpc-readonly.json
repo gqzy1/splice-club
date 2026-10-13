@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-13T20:28:24.996Z",
+  "chain": {
+    "id": 61999,
+    "name": "Genlayer Studio Network",
+    "isStudio": true,
+    "consensusMainContract": "0xb7278A61aa25c888815aFC32Ad3cC52fF24fE575",
+    "defaultConsensusMaxRotations": 3
+  },
+  "results": {
+    "eth_chainId": "0xf22f",
+    "eth_blockNumber": "0x6ace9470",
+    "eth_gasPrice": "0x0",
+    "web3_clientVersion": {
+      "error": "The method \"web3_clientVersion\" does not exist / is not available.\n\nDetails: Method not found: web3_clientVersion\nVersion: viem@2.57.5"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import {it,expect,vi} from 'vitest';
 import {render,screen,fireEvent,cleanup} from '@testing-library/react';
 import * as chain from '../src/chain';
-vi.mock('../src/chain',()=>({gallery:vi.fn(async()=>[]),pending:vi.fn(()=>({hash:'unexpected-saved-pending'})),lineage:vi.fn(),write:vi.fn(),connect:vi.fn(),track:vi.fn(),walletError:(e:Error)=>e.message}));
+vi.mock('../src/chain',()=>({unresolvedSubmission:vi.fn(()=>false),gallery:vi.fn(async()=>[]),pending:vi.fn(()=>({hash:'unexpected-saved-pending'})),lineage:vi.fn(),write:vi.fn(),connect:vi.fn(),track:vi.fn(),walletError:(e:Error)=>e.message}));
 it('preview blocks chain paths even with deployed config, saved transaction and w=1',async()=>{
  vi.stubEnv('VITE_OFFCHAIN_PREVIEW','true');vi.resetModules();
  const {default:App}=await import('../src/App');const {DEPLOYMENT:config}=await import('../src/config');

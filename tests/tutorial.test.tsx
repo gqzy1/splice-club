@@ -4,7 +4,7 @@ import App from '../src/App';
 import Tutorial from '../src/Tutorial';
 import {DEMO_IDEAS,demoFusion,TUTORIAL_KEY} from '../src/playground';
 import * as chain from '../src/chain';
-vi.mock('../src/chain',()=>({gallery:vi.fn(async()=>[]),pending:()=>null,lineage:vi.fn(),write:vi.fn(),connect:vi.fn(),walletError:(e:Error)=>e.message}));
+vi.mock('../src/chain',()=>({unresolvedSubmission:vi.fn(()=>false),gallery:vi.fn(async()=>[]),pending:()=>null,lineage:vi.fn(),write:vi.fn(),connect:vi.fn(),walletError:(e:Error)=>e.message}));
 beforeEach(()=>{cleanup();localStorage.clear();vi.clearAllMocks();history.replaceState({},'','/');window.scrollTo=vi.fn();});
 afterEach(()=>{cleanup();vi.useRealTimers();});
 const click=(name:string|RegExp)=>fireEvent.click(screen.getByRole('button',{name}));

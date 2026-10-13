@@ -3,6 +3,8 @@
   "chainId": 61999,
   "sdk": "1.1.8",
   "readOnly": true,
+  "sourceSha256": "cf1a92bd0956baf2cad0f54a7d8a677c312156fa9f54188b51a5b240190ffe8e",
+  "recordedAtUtc": "2026-10-13T20:27:58.781Z",
   "returnedChainId": 61999,
   "schema": {
     "ctor": {
@@ -126,7 +128,5 @@
       }
     }
   },
-  "status": "READ_ONLY_SCHEMA_PASS",
-  "sourceSha256": "cf1a92bd0956baf2cad0f54a7d8a677c312156fa9f54188b51a5b240190ffe8e",
-  "recordedAtUtc": "2026-10-13T16:31:00.016530+00:00"
+  "status": "READ_ONLY_SCHEMA_PASS"
 }
