@@ -1,0 +1,37 @@
+{
+  "provenance": "CAPTURED REAL FAILURE: normalized R3 candidate, NOT raw model response",
+  "evidence_sha256": "6774364407af551852dab89ad891eda73e83eeaa21ffe4da2f13dcd167f15abe",
+  "candidate_path": "/steps/T04/raw/consensus_history/consensus_results/2/leader_result/0/eq_outputs/0",
+  "parents": [
+    {
+      "id": 1,
+      "name": "Prism Beetle",
+      "description": "A small beetle refracts moonlight through its prismatic shell. Its antennae sense rhythms and steer each colored beam to match the beat.",
+      "features": [
+        "prismatic shell refracts moonlight",
+        "antennae sense rhythms"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Echo Loom",
+      "description": "A portable loom weaves audible tones into threads. Each woven thread stores a vibration and releases its sound when a beam of light touches it.",
+      "features": [
+        "weaves tones into threads",
+        "light releases stored vibrations"
+      ]
+    }
+  ],
+  "candidate": {
+    "bridge": "The beetle's antennae convert sensed rhythms into physical threads, which are then played by the shell's refracted moonlight to create a protective sonic barrier.",
+    "description": "This biomechanical crustacean possesses a translucent, prismatic carapace that functions as a living loom. As it scuttles through moonlit glades, its rhythmic antennae capture ambient sounds, spinning them into shimmering, vibrating silk threads that wrap around its body. When moonlight hits its shell, the refracted beams strike the internal threads, causing the creature to emit a symphonic resonance that physically alters the surrounding air.",
+    "features": [
+      "Prismatic carapace refracts moonlight into precise spectral needles",
+      "Antennae capture rhythmic vibrations to spin into sonic silk",
+      "Internal loom mechanism weaves audible threads into a resonant exoskeleton"
+    ],
+    "name": "Chromatic Weaver-Scarab"
+  },
+  "eq_payload_prefix_hex": "00fc37",
+  "candidate_sha256": "91a6d337ccd008e197c5a6808c66ce4a87a87d9da1ba3c6e70327f161de2b60c"
+}

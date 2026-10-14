@@ -1,0 +1,10 @@
+{
+  "classification": "OFFLINE REPRODUCED / HYPOTHETICAL TEST CASE; NOT REAL CONSENSUS",
+  "runtime": "Local CPython with SDK stubs; no GenVM execution",
+  "test_methods": 12,
+  "failures": 0,
+  "errors": 0,
+  "success": true,
+  "canonical_sha256": "cf1a92bd0956baf2cad0f54a7d8a677c312156fa9f54188b51a5b240190ffe8e",
+  "candidate_sha256": "d82376b1d63f14452e4c889e775db57323024b9785e9993bfb18bcd1121e584f"
+}

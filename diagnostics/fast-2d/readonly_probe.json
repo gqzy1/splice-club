@@ -1,0 +1,8 @@
+{
+  "checked_at_utc": "2026-10-14T09:08:09.521528+00:00",
+  "endpoint": "https://studio.genlayer.com/api",
+  "method": "eth_chainId",
+  "read_only": true,
+  "http_status": 403,
+  "error": "RPC HTTP access denied; no workaround attempted"
+}

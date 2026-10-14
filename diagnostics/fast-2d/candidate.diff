@@ -1,0 +1,62 @@
+--- canonical/creative_fusion.py
++++ CANDIDATE_ONLY/creative_fusion.py
+@@ -29,10 +29,35 @@
+     return value
+ 
+ 
++def strict_model_json(raw: str, maximum: int):
++    # CANDIDATE ONLY — NOT DEPLOYED. Whole-document normalization only.
++    if not isinstance(raw, str) or len(raw) > maximum or not raw.strip():
++        raise ValueError("MODEL_FORMAT_EMPTY_OR_SIZE")
++    body = raw.strip()
++    if body.startswith("```"):
++        lines = body.splitlines()
++        if len(lines) < 3 or lines[0] not in ("```json", "```") or lines[-1] != "```":
++            raise ValueError("MODEL_FORMAT_FENCE")
++        body = "\n".join(lines[1:-1])
++    def unique_pairs(pairs):
++        out = {}
++        for key, value in pairs:
++            if key in out:
++                raise ValueError("MODEL_FORMAT_DUPLICATE_KEY")
++            out[key] = value
++        return out
++    def invalid_constant(value):
++        raise ValueError("MODEL_FORMAT_NONFINITE")
++    try:
++        return json.loads(body, object_pairs_hook=unique_pairs, parse_constant=invalid_constant)
++    except (ValueError, TypeError):
++        raise ValueError("MODEL_FORMAT_INVALID_JSON") from None
++
++
+ def parse_candidate(raw: str):
+     if not isinstance(raw, str) or len(raw) > 2400:
+         raise gl.vm.UserError("INVALID_CANDIDATE")
+-    value = json.loads(raw)
++    value = strict_model_json(raw, 2400)
+     if not isinstance(value, dict) or set(value) != {"name", "description", "features", "bridge"}:
+         raise gl.vm.UserError("INVALID_CANDIDATE")
+     value["name"] = text(value["name"], 2, 48)
+@@ -59,11 +84,11 @@
+ 
+ 
+ def generate_prompt(snapshot: str) -> str:
+-    return RULES + "\nCreate a fusion from DATA_JSON. Output ONLY JSON with keys name (2-48 chars), description (20-480), features (exactly 3 strings of 3-100 chars), bridge (15-240 chars explaining the interaction).\nDATA_JSON=" + snapshot
++    return RULES + "\nCreate a fusion from DATA_JSON. Use one JSON object, double-quoted keys and strings, no Markdown, comments, prose, duplicate keys or trailing commas. All fields are required; use strings except features, which is an array. Write a concise causal mechanism where an attribute from one parent changes how an attribute from the other operates. Output ONLY JSON with keys name (2-48 chars), description (20-480), features (exactly 3 strings of 3-100 chars), bridge (15-240 chars explaining the interaction).\nDATA_JSON=" + snapshot
+ 
+ 
+ def review_prompt(snapshot: str, candidate: str) -> str:
+-    return RULES + """\nIndependently read both parents and the candidate. Do not trust the
++    return RULES + """\nIndependently read both parents and the candidate. Output one JSON object with double-quoted keys, JSON true/false booleans, and string evidence. No Markdown, comments, prose, duplicate keys or trailing commas. All seven fields are required, even for a negative verdict. Do not trust the
+ candidate's bridge or any claim of compliance. Find concrete textual evidence in the
+ actual generated description/features. Return ONLY JSON with exact keys:
+ parent_a_preserved (boolean), parent_b_preserved (boolean), integrated (boolean),
+@@ -78,7 +103,7 @@
+     if not isinstance(raw, str) or len(raw) > 1800:
+         return False
+     try:
+-        v = json.loads(raw)
++        v = strict_model_json(raw, 1800)
+         flags = ("parent_a_preserved", "parent_b_preserved", "integrated", "safe")
+         evidence = ("evidence_a", "evidence_b", "interaction")
+         if not isinstance(v, dict) or set(v) != set(flags + evidence):

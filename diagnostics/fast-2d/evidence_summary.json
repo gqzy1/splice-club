@@ -1,0 +1,507 @@
+{
+  "evidence_sha256": "6774364407af551852dab89ad891eda73e83eeaa21ffe4da2f13dcd167f15abe",
+  "deployed_source_sha256": "cf1a92bd0956baf2cad0f54a7d8a677c312156fa9f54188b51a5b240190ffe8e",
+  "exported_at": "2026-10-14T08:46:14.897Z",
+  "contract": "0x49FA79fB4Ff5C924F9FbA0a2E16558E3A7Db8D38",
+  "transactions": [
+    {
+      "step": "T01",
+      "hash": "0x20353ba0b03074894268e3d9422b6fdaff3bc34fbe18e11e3c9b9bc1e1e096ca",
+      "status": "FINALIZED",
+      "result_name": "MAJORITY_AGREE",
+      "rotation_count": 0,
+      "leader_only": false,
+      "appealed": false,
+      "captured_network_fee": "0",
+      "has_post_transaction_reads": true
+    },
+    {
+      "step": "T02",
+      "hash": "0xed81ab42cde6ea35c191436b3a259c19610857c483dcb95df8844e42dc591fdb",
+      "status": "FINALIZED",
+      "result_name": "MAJORITY_AGREE",
+      "rotation_count": 0,
+      "leader_only": false,
+      "appealed": false,
+      "captured_network_fee": "0",
+      "has_post_transaction_reads": true
+    },
+    {
+      "step": "T03",
+      "hash": "0x6e0544fe27fab5f77aa6dd1ede7e744d79cb17810624644f8c5bb16f9fc7281e",
+      "status": "FINALIZED",
+      "result_name": "MAJORITY_AGREE",
+      "rotation_count": 0,
+      "leader_only": false,
+      "appealed": false,
+      "captured_network_fee": "0",
+      "has_post_transaction_reads": true
+    },
+    {
+      "step": "T04",
+      "hash": "0xc7972c662f9428a0f1a89294452ad510c56071b1725d5df8e5fd6d7e6e2906f9",
+      "status": "UNDETERMINED",
+      "result_name": "MAJORITY_DISAGREE",
+      "rotation_count": 3,
+      "leader_only": false,
+      "appealed": false,
+      "captured_network_fee": null,
+      "has_post_transaction_reads": false
+    }
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "leader_execution": "ERROR",
+      "leader_json_decode_error": true,
+      "external_votes": {
+        "disagree": 2,
+        "idle": 2
+      },
+      "all_votes": {
+        "disagree": 3,
+        "idle": 2
+      },
+      "outcome": "Leader Rotation",
+      "receipts": [
+        {
+          "role": "leader",
+          "index": 0,
+          "vote": null,
+          "execution_result": "ERROR",
+          "result_base64": "AmV4aXRfY29kZSAx",
+          "input_calldata_sha256": "87a96ca24842f861555821b1d274fcdc2837756198b8a86cf32ad5a99dd00b45",
+          "llm_tokens": [
+            {
+              "input": 598,
+              "total": 916,
+              "output": 318
+            }
+          ],
+          "nondet_disagree": null,
+          "notify_nondet_disagreement": 0,
+          "stderr": "Traceback (most recent call last):\n  File \"/py/libs/_genlayer_runner.py\", line 193, in <module>\n    _give_result(lambda: runner(stage_data))\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/py/libs/_genlayer_runner.py\", line 65, in _give_result\n    res = res_fn()\n  File \"/py/libs/_genlayer_runner.py\", line 193, in <lambda>\n    _give_result(lambda: runner(stage_data))\n                         ~~~~~~^^^^^^^^^^^^\n  File \"/py/libs/genlayer/gl/vm.py\", line 181, in <lambda>\n    'data_leader': cloudpickle.dumps(lambda _: leader_fn()),\n                                               ~~~~~~~~~^^\n  File \"/contract.py\", line 162, in leader\n    return canonical(parse_candidate(gl.nondet.exec_prompt(generate_prompt(snapshot))))\n                     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/contract.py\", line 35, in parse_candidate\n    value = json.loads(raw)\n  File \"/py/std/json/__init__.py\", line 346, in loads\n    return _default_decoder.decode(s)\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^\n  File \"/py/std/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/py/std/json/decoder.py\", line 363, in raw_decode\n    raise JSONDecodeError(\"Expecting value\", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n",
+          "error_code": null,
+          "contract_state_hash": "987cd219efd1cb7f02ad0ebf83fe45b683a8de4aa09819b8ffe30209caaa7193"
+        },
+        {
+          "role": "leader_self_validation",
+          "index": 0,
+          "vote": "disagree",
+          "execution_result": "ERROR",
+          "result_base64": "AmV4aXRfY29kZSAx",
+          "input_calldata_sha256": "87a96ca24842f861555821b1d274fcdc2837756198b8a86cf32ad5a99dd00b45",
+          "llm_tokens": [],
+          "nondet_disagree": 0,
+          "notify_nondet_disagreement": 1,
+          "stderr": "",
+          "error_code": null,
+          "contract_state_hash": "987cd219efd1cb7f02ad0ebf83fe45b683a8de4aa09819b8ffe30209caaa7193"
+        },
+        {
+          "role": "external_validator",
+          "index": 0,
+          "vote": "disagree",
+          "execution_result": "ERROR",
+          "result_base64": "AmV4aXRfY29kZSAx",
+          "input_calldata_sha256": "87a96ca24842f861555821b1d274fcdc2837756198b8a86cf32ad5a99dd00b45",
+          "llm_tokens": [],
+          "nondet_disagree": 0,
+          "notify_nondet_disagreement": 1,
+          "stderr": "",
+          "error_code": null,
+          "contract_state_hash": "987cd219efd1cb7f02ad0ebf83fe45b683a8de4aa09819b8ffe30209caaa7193"
+        },
+        {
+          "role": "external_validator",
+          "index": 1,
+          "vote": "idle",
+          "execution_result": "ERROR",
+          "result_base64": "AmlkbGU=",
+          "input_calldata_sha256": null,
+          "llm_tokens": [],
+          "nondet_disagree": null,
+          "notify_nondet_disagreement": 0,
+          "stderr": "Validator execution cancelled after quorum",
+          "error_code": "CONSENSUS_VALIDATOR_QUORUM_REACHED",
+          "contract_state_hash": null
+        },
+        {
+          "role": "external_validator",
+          "index": 2,
+          "vote": "disagree",
+          "execution_result": "ERROR",
+          "result_base64": "AmV4aXRfY29kZSAx",
+          "input_calldata_sha256": "87a96ca24842f861555821b1d274fcdc2837756198b8a86cf32ad5a99dd00b45",
+          "llm_tokens": [],
+          "nondet_disagree": 0,
+          "notify_nondet_disagreement": 1,
+          "stderr": "",
+          "error_code": null,
+          "contract_state_hash": "987cd219efd1cb7f02ad0ebf83fe45b683a8de4aa09819b8ffe30209caaa7193"
+        },
+        {
+          "role": "external_validator",
+          "index": 3,
+          "vote": "idle",
+          "execution_result": "ERROR",
+          "result_base64": "AmlkbGU=",
+          "input_calldata_sha256": null,
+          "llm_tokens": [],
+          "nondet_disagree": null,
+          "notify_nondet_disagreement": 0,
+          "stderr": "Validator execution cancelled after quorum",
+          "error_code": "CONSENSUS_VALIDATOR_QUORUM_REACHED",
+          "contract_state_hash": null
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "leader_execution": "ERROR",
+      "leader_json_decode_error": true,
+      "external_votes": {
+        "idle": 1,
+        "disagree": 3
+      },
+      "all_votes": {
+        "idle": 2,
+        "disagree": 3
+      },
+      "outcome": "Leader Rotation",
+      "receipts": [
+        {
+          "role": "leader",
+          "index": 0,
+          "vote": null,
+          "execution_result": "ERROR",
+          "result_base64": "AmV4aXRfY29kZSAx",
+          "input_calldata_sha256": "87a96ca24842f861555821b1d274fcdc2837756198b8a86cf32ad5a99dd00b45",
+          "llm_tokens": [
+            {
+              "input": 598,
+              "total": 895,
+              "output": 297
+            }
+          ],
+          "nondet_disagree": null,
+          "notify_nondet_disagreement": 0,
+          "stderr": "Traceback (most recent call last):\n  File \"/py/libs/_genlayer_runner.py\", line 193, in <module>\n    _give_result(lambda: runner(stage_data))\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/py/libs/_genlayer_runner.py\", line 65, in _give_result\n    res = res_fn()\n  File \"/py/libs/_genlayer_runner.py\", line 193, in <lambda>\n    _give_result(lambda: runner(stage_data))\n                         ~~~~~~^^^^^^^^^^^^\n  File \"/py/libs/genlayer/gl/vm.py\", line 181, in <lambda>\n    'data_leader': cloudpickle.dumps(lambda _: leader_fn()),\n                                               ~~~~~~~~~^^\n  File \"/contract.py\", line 162, in leader\n    return canonical(parse_candidate(gl.nondet.exec_prompt(generate_prompt(snapshot))))\n                     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/contract.py\", line 35, in parse_candidate\n    value = json.loads(raw)\n  File \"/py/std/json/__init__.py\", line 346, in loads\n    return _default_decoder.decode(s)\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^\n  File \"/py/std/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/py/std/json/decoder.py\", line 363, in raw_decode\n    raise JSONDecodeError(\"Expecting value\", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n",
+          "error_code": null,
+          "contract_state_hash": "987cd219efd1cb7f02ad0ebf83fe45b683a8de4aa09819b8ffe30209caaa7193"
+        },
+        {
+          "role": "leader_self_validation",
+          "index": 0,
+          "vote": "idle",
+          "execution_result": "ERROR",
+          "result_base64": "AmlkbGU=",
+          "input_calldata_sha256": null,
+          "llm_tokens": [],
+          "nondet_disagree": null,
+          "notify_nondet_disagreement": 0,
+          "stderr": "Validator execution cancelled after quorum",
+          "error_code": "CONSENSUS_VALIDATOR_QUORUM_REACHED",
+          "contract_state_hash": null
+        },
+        {
+          "role": "external_validator",
+          "index": 0,
+          "vote": "idle",
+          "execution_result": "ERROR",
+          "result_base64": "AmlkbGU=",
+          "input_calldata_sha256": null,
+          "llm_tokens": [],
+          "nondet_disagree": null,
+          "notify_nondet_disagreement": 0,
+          "stderr": "Validator execution cancelled after quorum",
+          "error_code": "CONSENSUS_VALIDATOR_QUORUM_REACHED",
+          "contract_state_hash": null
+        },
+        {
+          "role": "external_validator",
+          "index": 1,
+          "vote": "disagree",
+          "execution_result": "ERROR",
+          "result_base64": "AmV4aXRfY29kZSAx",
+          "input_calldata_sha256": "87a96ca24842f861555821b1d274fcdc2837756198b8a86cf32ad5a99dd00b45",
+          "llm_tokens": [],
+          "nondet_disagree": 0,
+          "notify_nondet_disagreement": 1,
+          "stderr": "",
+          "error_code": null,
+          "contract_state_hash": "987cd219efd1cb7f02ad0ebf83fe45b683a8de4aa09819b8ffe30209caaa7193"
+        },
+        {
+          "role": "external_validator",
+          "index": 2,
+          "vote": "disagree",
+          "execution_result": "ERROR",
+          "result_base64": "AmV4aXRfY29kZSAx",
+          "input_calldata_sha256": "87a96ca24842f861555821b1d274fcdc2837756198b8a86cf32ad5a99dd00b45",
+          "llm_tokens": [],
+          "nondet_disagree": 0,
+          "notify_nondet_disagreement": 1,
+          "stderr": "",
+          "error_code": null,
+          "contract_state_hash": "987cd219efd1cb7f02ad0ebf83fe45b683a8de4aa09819b8ffe30209caaa7193"
+        },
+        {
+          "role": "external_validator",
+          "index": 3,
+          "vote": "disagree",
+          "execution_result": "ERROR",
+          "result_base64": "AmV4aXRfY29kZSAx",
+          "input_calldata_sha256": "87a96ca24842f861555821b1d274fcdc2837756198b8a86cf32ad5a99dd00b45",
+          "llm_tokens": [],
+          "nondet_disagree": 0,
+          "notify_nondet_disagreement": 1,
+          "stderr": "",
+          "error_code": null,
+          "contract_state_hash": "987cd219efd1cb7f02ad0ebf83fe45b683a8de4aa09819b8ffe30209caaa7193"
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "leader_execution": "SUCCESS",
+      "leader_json_decode_error": false,
+      "external_votes": {
+        "idle": 1,
+        "agree": 1,
+        "disagree": 2
+      },
+      "all_votes": {
+        "disagree": 3,
+        "idle": 1,
+        "agree": 1
+      },
+      "outcome": "Leader Rotation",
+      "receipts": [
+        {
+          "role": "leader",
+          "index": 0,
+          "vote": null,
+          "execution_result": "SUCCESS",
+          "result_base64": "ABk=",
+          "input_calldata_sha256": "87a96ca24842f861555821b1d274fcdc2837756198b8a86cf32ad5a99dd00b45",
+          "llm_tokens": [
+            {
+              "input": 618,
+              "total": 808,
+              "output": 190
+            }
+          ],
+          "nondet_disagree": null,
+          "notify_nondet_disagreement": 0,
+          "stderr": "",
+          "error_code": null,
+          "contract_state_hash": "c173547a20ab49644bc300d0ca38d3f2063c6f9c4e154af01824a93058323c34"
+        },
+        {
+          "role": "leader_self_validation",
+          "index": 0,
+          "vote": "disagree",
+          "execution_result": "SUCCESS",
+          "result_base64": "ABk=",
+          "input_calldata_sha256": "87a96ca24842f861555821b1d274fcdc2837756198b8a86cf32ad5a99dd00b45",
+          "llm_tokens": [
+            {
+              "input": 873,
+              "total": 1009,
+              "output": 136
+            }
+          ],
+          "nondet_disagree": 0,
+          "notify_nondet_disagreement": 1,
+          "stderr": "",
+          "error_code": null,
+          "contract_state_hash": "c173547a20ab49644bc300d0ca38d3f2063c6f9c4e154af01824a93058323c34"
+        },
+        {
+          "role": "external_validator",
+          "index": 0,
+          "vote": "idle",
+          "execution_result": "ERROR",
+          "result_base64": "AmlkbGU=",
+          "input_calldata_sha256": null,
+          "llm_tokens": [],
+          "nondet_disagree": null,
+          "notify_nondet_disagreement": 0,
+          "stderr": "Validator execution cancelled after quorum",
+          "error_code": "CONSENSUS_VALIDATOR_QUORUM_REACHED",
+          "contract_state_hash": null
+        },
+        {
+          "role": "external_validator",
+          "index": 1,
+          "vote": "agree",
+          "execution_result": "SUCCESS",
+          "result_base64": "ABk=",
+          "input_calldata_sha256": "87a96ca24842f861555821b1d274fcdc2837756198b8a86cf32ad5a99dd00b45",
+          "llm_tokens": [
+            {
+              "input": 880,
+              "total": 1065,
+              "output": 185
+            }
+          ],
+          "nondet_disagree": null,
+          "notify_nondet_disagreement": 0,
+          "stderr": "",
+          "error_code": null,
+          "contract_state_hash": "c173547a20ab49644bc300d0ca38d3f2063c6f9c4e154af01824a93058323c34"
+        },
+        {
+          "role": "external_validator",
+          "index": 2,
+          "vote": "disagree",
+          "execution_result": "SUCCESS",
+          "result_base64": "ABk=",
+          "input_calldata_sha256": "87a96ca24842f861555821b1d274fcdc2837756198b8a86cf32ad5a99dd00b45",
+          "llm_tokens": [
+            {
+              "input": 861,
+              "total": 1654,
+              "output": 793
+            }
+          ],
+          "nondet_disagree": 0,
+          "notify_nondet_disagreement": 1,
+          "stderr": "",
+          "error_code": null,
+          "contract_state_hash": "c173547a20ab49644bc300d0ca38d3f2063c6f9c4e154af01824a93058323c34"
+        },
+        {
+          "role": "external_validator",
+          "index": 3,
+          "vote": "disagree",
+          "execution_result": "SUCCESS",
+          "result_base64": "ABk=",
+          "input_calldata_sha256": "87a96ca24842f861555821b1d274fcdc2837756198b8a86cf32ad5a99dd00b45",
+          "llm_tokens": [
+            {
+              "input": 886,
+              "total": 999,
+              "output": 113
+            }
+          ],
+          "nondet_disagree": 0,
+          "notify_nondet_disagreement": 1,
+          "stderr": "",
+          "error_code": null,
+          "contract_state_hash": "c173547a20ab49644bc300d0ca38d3f2063c6f9c4e154af01824a93058323c34"
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "leader_execution": "ERROR",
+      "leader_json_decode_error": true,
+      "external_votes": {
+        "disagree": 3,
+        "idle": 1
+      },
+      "all_votes": {
+        "idle": 2,
+        "disagree": 3
+      },
+      "outcome": "Undetermined",
+      "receipts": [
+        {
+          "role": "leader",
+          "index": 0,
+          "vote": null,
+          "execution_result": "ERROR",
+          "result_base64": "AmV4aXRfY29kZSAx",
+          "input_calldata_sha256": "87a96ca24842f861555821b1d274fcdc2837756198b8a86cf32ad5a99dd00b45",
+          "llm_tokens": [
+            {
+              "input": 630,
+              "total": 755,
+              "output": 125
+            }
+          ],
+          "nondet_disagree": null,
+          "notify_nondet_disagreement": 0,
+          "stderr": "Traceback (most recent call last):\n  File \"/py/libs/_genlayer_runner.py\", line 193, in <module>\n    _give_result(lambda: runner(stage_data))\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/py/libs/_genlayer_runner.py\", line 65, in _give_result\n    res = res_fn()\n  File \"/py/libs/_genlayer_runner.py\", line 193, in <lambda>\n    _give_result(lambda: runner(stage_data))\n                         ~~~~~~^^^^^^^^^^^^\n  File \"/py/libs/genlayer/gl/vm.py\", line 181, in <lambda>\n    'data_leader': cloudpickle.dumps(lambda _: leader_fn()),\n                                               ~~~~~~~~~^^\n  File \"/contract.py\", line 162, in leader\n    return canonical(parse_candidate(gl.nondet.exec_prompt(generate_prompt(snapshot))))\n                     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/contract.py\", line 35, in parse_candidate\n    value = json.loads(raw)\n  File \"/py/std/json/__init__.py\", line 346, in loads\n    return _default_decoder.decode(s)\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^\n  File \"/py/std/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/py/std/json/decoder.py\", line 363, in raw_decode\n    raise JSONDecodeError(\"Expecting value\", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n",
+          "error_code": null,
+          "contract_state_hash": "987cd219efd1cb7f02ad0ebf83fe45b683a8de4aa09819b8ffe30209caaa7193"
+        },
+        {
+          "role": "leader_self_validation",
+          "index": 0,
+          "vote": "idle",
+          "execution_result": "ERROR",
+          "result_base64": "AmlkbGU=",
+          "input_calldata_sha256": null,
+          "llm_tokens": [],
+          "nondet_disagree": null,
+          "notify_nondet_disagreement": 0,
+          "stderr": "Validator execution cancelled after quorum",
+          "error_code": "CONSENSUS_VALIDATOR_QUORUM_REACHED",
+          "contract_state_hash": null
+        },
+        {
+          "role": "external_validator",
+          "index": 0,
+          "vote": "disagree",
+          "execution_result": "ERROR",
+          "result_base64": "AmV4aXRfY29kZSAx",
+          "input_calldata_sha256": "87a96ca24842f861555821b1d274fcdc2837756198b8a86cf32ad5a99dd00b45",
+          "llm_tokens": [],
+          "nondet_disagree": 0,
+          "notify_nondet_disagreement": 1,
+          "stderr": "",
+          "error_code": null,
+          "contract_state_hash": "987cd219efd1cb7f02ad0ebf83fe45b683a8de4aa09819b8ffe30209caaa7193"
+        },
+        {
+          "role": "external_validator",
+          "index": 1,
+          "vote": "disagree",
+          "execution_result": "ERROR",
+          "result_base64": "AmV4aXRfY29kZSAx",
+          "input_calldata_sha256": "87a96ca24842f861555821b1d274fcdc2837756198b8a86cf32ad5a99dd00b45",
+          "llm_tokens": [],
+          "nondet_disagree": 0,
+          "notify_nondet_disagreement": 1,
+          "stderr": "",
+          "error_code": null,
+          "contract_state_hash": "987cd219efd1cb7f02ad0ebf83fe45b683a8de4aa09819b8ffe30209caaa7193"
+        },
+        {
+          "role": "external_validator",
+          "index": 2,
+          "vote": "idle",
+          "execution_result": "ERROR",
+          "result_base64": "AmlkbGU=",
+          "input_calldata_sha256": null,
+          "llm_tokens": [],
+          "nondet_disagree": null,
+          "notify_nondet_disagreement": 0,
+          "stderr": "Validator execution cancelled after quorum",
+          "error_code": "CONSENSUS_VALIDATOR_QUORUM_REACHED",
+          "contract_state_hash": null
+        },
+        {
+          "role": "external_validator",
+          "index": 3,
+          "vote": "disagree",
+          "execution_result": "ERROR",
+          "result_base64": "AmV4aXRfY29kZSAx",
+          "input_calldata_sha256": "87a96ca24842f861555821b1d274fcdc2837756198b8a86cf32ad5a99dd00b45",
+          "llm_tokens": [],
+          "nondet_disagree": 0,
+          "notify_nondet_disagreement": 1,
+          "stderr": "",
+          "error_code": null,
+          "contract_state_hash": "987cd219efd1cb7f02ad0ebf83fe45b683a8de4aa09819b8ffe30209caaa7193"
+        }
+      ]
+    }
+  ],
+  "raw_failed_model_outputs_available": false,
+  "raw_validator_reviews_available": false,
+  "post_T04_state_read_available": false
+}
