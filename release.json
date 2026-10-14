@@ -1,0 +1,8 @@
+{
+  "version": "SPLICE-V2",
+  "repositoryACommit": "6d25bd0064e1ea21d7d09fb347a615dea4da9892",
+  "repositoryBCommit": "7869133281dcd1decf7f5ead9ea449b257c6d76f",
+  "contract": "0x834f53cf56AE590F63cee321eE1A8CE566F3E9c4",
+  "chainId": 61999,
+  "sourceSHA256": "4a92361b30f2b504ec02e699a816bab78cac47504dafafa9a2ca158c947f07b1"
+}
