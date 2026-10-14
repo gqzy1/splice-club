@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "kind": "LOCAL HTTP / NOT REAL BROWSER",
+  "port": 4180,
+  "probes": [
+    {
+      "name": "GET",
+      "status": 200,
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://studio.genlayer.com; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'"
+    },
+    {
+      "name": "POST",
+      "status": 403,
+      "csp": null
+    },
+    {
+      "name": "bad-origin",
+      "status": 403,
+      "csp": null
+    },
+    {
+      "name": "bad-host",
+      "status": 403
+    }
+  ],
+  "realWallet": "NOT VERIFIED",
+  "realBrowser": "NOT VERIFIED; automated download returned truncated archive",
+  "checkedAt": "2026-10-14T09:53:43.520Z"
+}

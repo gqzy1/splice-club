@@ -1,3 +1,5 @@
+> This branch contains the SPLICE-V2 candidate and isolated local-operator-v2. V2 is not deployed; source SHA and validation are in V2_REVISION.md and V2_VALIDATION.json. The public preview and original local-operator remain unchanged with V1 identity. No publication occurs here.
+
 # SPLICE.CLUB
 
 **Your idea. Their idea. Weird chemistry.**

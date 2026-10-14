@@ -1,8 +1,7 @@
-# Source provenance
+# V2 source provenance
 
-The React application and procedural card glyphs were created for SPLICE.CLUB. No prior user project's frontend, business code or architecture was copied. Runtime dependencies are pinned in package.json/package-lock.json; the GenLayer SDK is exactly 1.1.8.
+A canonical source: https://github.com/gqzy1/splice-fusion-primitive/tree/fast-2f-fusion-v2
 
-The complete official companion primitive source is at `intelligent-contract/contracts/creative_fusion.py`. Its SHA256 matches Repository A and the frontend activation manifest. See `SOURCE_SHA256.txt`, `scripts/verify_source.py` and `intelligent-contract/SOURCE_PROVENANCE.md`.
+B complete official copy: intelligent-contract/contracts/creative_fusion.py; future operator copy: local-operator-v2/contracts/creative_fusion.py. SHA256: 4a92361b30f2b504ec02e699a816bab78cac47504dafafa9a2ca158c947f07b1. Verified byte-for-byte against A.
 
-Tests import clearly synthetic fixtures from `tests/fixtures.ts` only. Production `src` contains no sample works, made-up creators or successful hashes. The contract address and verified work ID are null until actual evidence exists.
-
+Archived V1 copy: intelligent-contract/archive/v1/creative_fusion.py. Existing local-operator and src/ public preview retain V1 identity and behavior. No publication or main merge is part of this branch. V2 address is null, no V2 onchain example exists.
