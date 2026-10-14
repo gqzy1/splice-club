@@ -1,10 +1,10 @@
-# Projects — suggested Portal fields
+# Projects — contribution reference
 
-| Field | Suggested value |
+| Field | Project detail |
 | --- | --- |
 | Name | SPLICE.CLUB |
 | Short description | A playful collaborative idea-fusion club: remix two creators' seeds through GenLayer consensus and explore the resulting work's roots. |
-| Category | AI / Creative applications (choose the closest available Portal tag) |
+| Category | AI & Agents — creative applications |
 | Website | https://gqzy1.github.io/splice-club/ |
 | Repository | https://github.com/gqzy1/splice-club |
 | Proof / evidence URL | https://gqzy1.github.io/splice-club/?w=1 |
@@ -21,4 +21,4 @@ The wallet-free Verified Onchain Example opens real work #3, Prismatic Resonator
 
 Exact GenVM node binary version is unverified. One accepted real fusion does not establish general model accuracy. Human semantic review is separate from network validator votes. Receipt-reported fee was zero for the four recorded transactions; nonzero fee conditions stop signing. Wallet contributors do not establish legal IP ownership.
 
-Projects proof/additional-information URLs differ from both Intelligent Contracts URLs. The Portal's exact field labels and length limits must be checked in the user's final submission form; these are prepared values, not a claimed submitted form. Do not submit automatically.
+The read-only example and usage guide document the complete SPLICE.CLUB product; the Intelligent Contracts contribution uses different onchain-evidence and test-reference links. The complete official SPLICE-V2 source is included at `intelligent-contract/contracts/creative_fusion.py`. The earlier V1 deployment is historical and is not the contract used by this release.
