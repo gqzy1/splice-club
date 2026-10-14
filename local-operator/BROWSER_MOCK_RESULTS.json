@@ -1,0 +1,38 @@
+{
+  "serverProbes": [
+    {
+      "label": "GET",
+      "status": 200
+    },
+    {
+      "label": "POST",
+      "status": 403
+    },
+    {
+      "label": "bad-origin",
+      "status": 403
+    },
+    {
+      "label": "bad-host",
+      "status": 403
+    }
+  ],
+  "label": "MOCK PASS — isolated browser, NOT REAL ONCHAIN",
+  "sends": 4,
+  "steps": [
+    "deploy",
+    "seed A ID 11",
+    "seed B ID 27",
+    "fusion ID 42"
+  ],
+  "accountFlow": "A -> B -> A",
+  "explicitProvider": "OKX namespace selected; competing MetaMask fails if used",
+  "reload": "preserved, zero resends",
+  "export": "local JSON, verified mock values",
+  "sourceSha": "PASS",
+  "desktop": "PASS",
+  "mobile390": "PASS, no horizontal overflow",
+  "pageErrors": [],
+  "realWalletSigning": "NOT RUN LIVE",
+  "liveRPC": "NOT RUN LIVE"
+}
