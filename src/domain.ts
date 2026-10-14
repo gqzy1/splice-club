@@ -8,7 +8,7 @@ export function choosePair(pair:Work[],work:Work):Work[]{
 export function pairError(pair:Work[]):string|null{
  if(pair.length!==2)return 'Pick two seeds to start.';
  if(pair[0].id===pair[1].id)return 'Choose two different seeds.';
- if(pair.some(w=>w.kind!=='seed'))return 'V1 fuses seeds only.';
+ if(pair.some(w=>w.kind!=='seed'))return 'V2 fuses seeds only.';
  if(pair[0].creator.toLowerCase()===pair[1].creator.toLowerCase())return 'Pick seeds from two different creators.';
  return null;
 }
@@ -22,16 +22,18 @@ export function validateSeed(s:SeedInput):string|null{
 }
 export function parseWork(value:unknown):Work{
  const w=typeof value==='string'?JSON.parse(value):value;
- if(!w||typeof w!=='object'||!Number.isSafeInteger(w.id)||w.id<1||!['seed','fusion'].includes(w.kind)||typeof w.name!=='string'||typeof w.description!=='string'||!Array.isArray(w.features)||!w.features.every((s:unknown)=>typeof s==='string')||typeof w.creator!=='string'||!/^0x[0-9a-f]{40}$/i.test(w.creator)||!Array.isArray(w.parents)||!w.parents.every(Number.isSafeInteger)||!Array.isArray(w.parent_creators)||!['creature','object','world','wildcard'].includes(w.category)||w.version!=='SPLICE-V1'||w.license!=='PUBLIC-DERIVATION-V1')throw new Error('Invalid contract response.');
+ if(!w||typeof w!=='object'||!Number.isSafeInteger(w.id)||w.id<1||!['seed','fusion'].includes(w.kind)||typeof w.name!=='string'||typeof w.description!=='string'||!Array.isArray(w.features)||!w.features.every((s:unknown)=>typeof s==='string')||typeof w.creator!=='string'||!/^0x[0-9a-f]{40}$/i.test(w.creator)||!Array.isArray(w.parents)||!w.parents.every(Number.isSafeInteger)||!Array.isArray(w.parent_creators)||!['creature','object','world','wildcard'].includes(w.category)||w.version!=='SPLICE-V2'||w.license!=='PUBLIC-DERIVATION-V1')throw new Error('Invalid contract response.');
  if((w.kind==='seed'&&(w.parents.length!==0||w.depth!==0))||(w.kind==='fusion'&&(w.parents.length!==2||w.parents[0]===w.parents[1]||w.depth!==1)))throw new Error('Invalid lineage response.');
  return w as Work;
 }
-export function lifecycle(tx:{statusName?:unknown;status?:unknown;resultName?:unknown;txExecutionResultName?:unknown;result?:unknown;txExecutionResult?:unknown}):Progress{
+export function lifecycle(tx:{statusName?:unknown;status?:unknown;resultName?:unknown;result_name?:unknown;consensus_data?:any;txExecutionResultName?:unknown;result?:unknown;txExecutionResult?:unknown}):Progress{
  const status=String(tx.statusName??tx.status??'UNKNOWN').toUpperCase();
  if(['UNDETERMINED','CANCELED','VALIDATORS_TIMEOUT','LEADER_TIMEOUT'].includes(status))return {phase:'failed',label:`Consensus stopped: ${status}. No work confirmed.`};
  if(status==='FINALIZED'||status==='7'){
-  if(tx.txExecutionResultName==='FINISHED_WITH_ERROR'||tx.txExecutionResult===2)return {phase:'rejected',label:'Finalized with contract error. No creation confirmed.'};
-  if((tx.resultName==='MAJORITY_AGREE'||tx.result===6)&&(tx.txExecutionResultName==='FINISHED_WITH_RETURN'||tx.txExecutionResult===1))return {phase:'finalized',label:'Finalized. Checking the saved work…'};
+  const receipts=tx.consensus_data?.leader_receipt;
+  const execution=tx.txExecutionResultName??(Array.isArray(receipts)?receipts[0]?.execution_result:receipts?.execution_result);
+  if(execution==='FINISHED_WITH_ERROR'||execution==='ERROR'||tx.txExecutionResult===2)return {phase:'rejected',label:'Finalized with contract error. No creation confirmed.'};
+  if(((tx.resultName??tx.result_name)==='MAJORITY_AGREE'||tx.result===6)&&(execution==='FINISHED_WITH_RETURN'||execution==='SUCCESS'||tx.txExecutionResult===1))return {phase:'finalized',label:'Finalized. Checking the saved work…'};
   return {phase:'failed',label:'Finalized without verified agreement and successful execution.'};
  }
  if(status==='ACCEPTED'||status==='5')return {phase:'accepted',label:'Accepted — waiting for finalization.'};
