@@ -12,7 +12,6 @@ import {construct,sourceCheck,plannedCalldata} from '../src/sdk';
 import {readiness,verifyBoundary,rpc} from '../src/rpc';
 import {Operator,type Services} from '../src/engine';
 import {digest,canonical,verifyFusion} from '../src/verify';
-vi.mock('../src/config',async importOriginal=>({...await importOriginal<typeof import('../src/config')>(),DEPLOYMENT_ENABLED:true}));
 const A=('0x'+'a'.repeat(40)) as `0x${string}`,B=('0x'+'b'.repeat(40)) as `0x${string}`,CONTRACT=('0x'+'c'.repeat(40)) as `0x${string}`,HASH=('0x'+'d'.repeat(64)) as `0x${string}`;
 let selected=A,sent=0,price='0x0',gasFail=false,rejected=false,noHash=false,rpcError=false,raw:any,works:Record<number,any>,lineage:any;
 const provider:Provider={isOkxWallet:true,request:vi.fn(async({method}:any)=>{
@@ -83,7 +82,7 @@ describe('fixed SDK build and strict fees (MOCK)',()=>{
  it('does not call banned or write RPC methods',async()=>{await expect(rpc('eth_sendTransaction')).rejects.toThrow('非只读');await expect(rpc('sim_getFeeConfig')).rejects.toThrow('非只读');});
 });
 describe('one send, persistence, fail closed, recovery (MOCK)',()=>{
- it('persists intent before send and Hash immediately after response',async()=>{const {op,store,plan}=await prepared();const original=provider.request;const p={request:async(r:any)=>{if(r.method==='eth_sendTransaction')expect(store.load().entries.T01?.status).toBe('INTENT');return original(r);}};await op.submit(p,plan);expect(store.load().entries.T01?.hash).toBe(HASH);expect(sent).toBe(1);});
+ it('persists intent before send and Hash immediately after response',async()=>{const {op,store,plan}=await prepared();const original=provider.request;const p={isOkxWallet:true,request:async(r:any)=>{if(r.method==='eth_sendTransaction')expect(store.load().entries.T01?.status).toBe('INTENT');return original(r);}};await op.submit(p,plan);expect(store.load().entries.T01?.hash).toBe(HASH);expect(sent).toBe(1);});
  it('rejects all duplicate sends, including a new engine after page refresh',async()=>{const {op,store,plan}=await prepared();await op.submit(provider,plan);await expect(new Operator(new Store()).submit(provider,plan)).rejects.toThrow();expect(sent).toBe(1);expect(store.load().entries.T01?.status).toBe('SUBMITTED');});
  it('does not retry user rejection; workflow stops even with zero broadcasts',async()=>{const {op,store,plan}=await prepared();rejected=true;await expect(op.submit(provider,plan)).rejects.toThrow('declined');await expect(op.submit(provider,plan)).rejects.toThrow('STOP');expect(sent).toBe(1);expect(store.load().entries.T01?.status).toBe('FAILED');});
  it('no Hash response keeps UNKNOWN and blocks every new write',async()=>{const {op,store,plan}=await prepared();noHash=true;await expect(op.submit(provider,plan)).rejects.toThrow('Hash');expect(store.load().entries.T01?.status).toBe('UNKNOWN');await expect(op.submit(provider,plan)).rejects.toThrow('STOP');expect(sent).toBe(1);});
@@ -113,5 +112,32 @@ describe('fusion verification (MOCK)',()=>{
  const plan=await planFor(s,'T04');s.entries.T04={plan,status:'VERIFIED',hash:HASH,createdAt:new Date().toISOString(),raw:{mock:true},reads:result};const store=new Store();store.save(s);expect(evidence(s).status).not.toContain('REAL ONCHAIN FUSION VERIFIED');
  const op=new Operator(store);expect(()=>op.semantic('fake','fake','fake')).toThrow();op.semantic('Prismatic moonlight','weaves tones','antenna rhythm steers');expect(evidence(store.load()).status).toBe('REAL ONCHAIN FUSION VERIFIED');
  await expect(verifyFusion(s,{...w,input_hash:'bad'},{work:w,parents},42)).rejects.toThrow('哈希');
+ });
+});
+
+describe('FAST-2G authorized release boundaries (MOCK)',()=>{
+ it('blocks a non-OKX engine caller before prepare or submit can access RPC',async()=>{
+  const p={request:vi.fn()},op=new Operator(new Store());
+  await expect(op.prepare(p,'T01')).rejects.toThrow('OKX');
+  await expect(op.submit(p,{} as Plan)).rejects.toThrow('OKX');
+  expect(p.request).not.toHaveBeenCalled();expect(sent).toBe(0);
+ });
+ it('blocks a changed pending nonce before any signature',async()=>{
+  const {op,store,plan}=await prepared();plan.tx.nonce='0x1';
+  await expect(op.submit(provider,plan)).rejects.toThrow('nonce');
+  expect(sent).toBe(0);expect(store.load().halt).toBeTruthy();
+ });
+ it('keeps all four slots spent after reload with no fifth send opportunity',async()=>{
+  const s=await stateThroughSeed(),plan=await planFor(s,'T04');
+  s.entries.T04={plan,status:'UNKNOWN',createdAt:new Date().toISOString()};s.halt='UNKNOWN broadcast';
+  const store=new Store();store.save(s);const again=new Store();
+  expect(Object.keys(again.load().entries)).toHaveLength(4);
+  for(const step of ['T01','T02','T03','T04'] as Step[])expect(()=>assertStage(again.load(),step,A)).toThrow('STOP');
+  expect(sent).toBe(0);
+ });
+ it('preserves an existing V2 intent on startup instead of granting a new budget',async()=>{
+  const {op,store,plan}=await prepared();noHash=true;await expect(op.submit(provider,plan)).rejects.toThrow();
+  const saved=localStorage.getItem(KEY);new Store().load();
+  expect(localStorage.getItem(KEY)).toBe(saved);expect(store.load().entries.T01?.status).toBe('UNKNOWN');
  });
 });

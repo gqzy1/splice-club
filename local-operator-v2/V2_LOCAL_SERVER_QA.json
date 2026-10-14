@@ -24,6 +24,6 @@
     }
   ],
   "realWallet": "NOT VERIFIED",
-  "realBrowser": "NOT VERIFIED; automated download returned truncated archive",
-  "checkedAt": "2026-10-14T09:53:43.520Z"
+  "realBrowser": "See FAST2G browser QA; this script tests HTTP only",
+  "checkedAt": "2026-10-14T10:54:21.708Z"
 }

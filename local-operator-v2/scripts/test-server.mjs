@@ -16,6 +16,6 @@ try{
  }
  probes.push({name:'bad-host',status:await new Promise((resolve,reject)=>http.get(url,{headers:{Host:'evil.example'}},r=>{r.resume();resolve(r.statusCode);}).on('error',reject))});
  if(JSON.stringify(probes.map(x=>x.status))!=='[200,403,403,403]')throw new Error('SERVER_BOUNDARY_FAILED');
- writeFileSync('V2_LOCAL_SERVER_QA.json',JSON.stringify({status:'PASS',kind:'LOCAL HTTP / NOT REAL BROWSER',port:4180,probes,realWallet:'NOT VERIFIED',realBrowser:'NOT VERIFIED; automated download returned truncated archive',checkedAt:new Date().toISOString()},null,2)+'\n');
+ writeFileSync(process.env.SPLICE_QA_OUTPUT||'V2_LOCAL_SERVER_QA.json',JSON.stringify({status:'PASS',kind:'LOCAL HTTP / NOT REAL BROWSER',port:4180,probes,realWallet:'NOT VERIFIED',realBrowser:'See FAST2G browser QA; this script tests HTTP only',checkedAt:new Date().toISOString()},null,2)+'\n');
  console.log('LOCAL_SERVER_PASS',probes.map(x=>[x.name,x.status]));
 }finally{child.kill();}

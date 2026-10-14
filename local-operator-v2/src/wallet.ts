@@ -1,9 +1,12 @@
 import {CHAIN,CHAIN_HEX,RPC,isAddress} from './config';
 export type Provider={request:(args:{method:string;params?:any})=>Promise<any>;on?:(event:string,fn:(...args:any[])=>void)=>void;removeListener?:(event:string,fn:(...args:any[])=>void)=>void;isOkxWallet?:boolean};
 export type Choice={id:string;name:string;rdns:string;provider:Provider;okx:boolean};
+const recognizedOKX=new WeakSet<object>();
+export function assertOKX(p:Provider){if(p.isOkxWallet!==true&&!recognizedOKX.has(p))throw new Error('WALLET BLOCKED: 非已识别 OKX Provider。');}
 export function choice(detail:any):Choice|null{
  if(!detail?.provider||typeof detail.provider.request!=='function'||typeof detail.info?.uuid!=='string'||typeof detail.info?.name!=='string')return null;
  const rdns=String(detail.info.rdns||'');
+ if(rdns==='com.okex.wallet'||rdns==='com.okx.wallet')recognizedOKX.add(detail.provider);
  return {id:detail.info.uuid,name:detail.info.name.slice(0,80),rdns,provider:detail.provider,okx:rdns==='com.okex.wallet'||rdns==='com.okx.wallet'};
 }
 export function discover(update:(choices:Choice[])=>void){

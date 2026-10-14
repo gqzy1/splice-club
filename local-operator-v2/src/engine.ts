@@ -2,15 +2,15 @@ import {CHAIN,CHAIN_HEX,SOURCE_SHA,V1_CONTRACT,DEPLOYMENT_ENABLED,SEEDS,isAddres
 import {Store,assertStage,nextStep,type State,type Plan,type Entry,type Tx} from './store';
 import {construct,sourceCheck,read,decodedTransaction,sha,plannedCalldata} from './sdk';
 import {readiness,verifyBoundary,rpc,quantity} from './rpc';
-import {walletState,type Provider} from './wallet';
+import {walletState,assertOKX,type Provider} from './wallet';
 import {verifySeed,verifyFusion,parsed,canonical} from './verify';
 const defaults={construct,sourceCheck,read,decodedTransaction,readiness,verifyBoundary,rpc};
 export type Services=typeof defaults;
 export class Operator{
  constructor(public store:Store,private services:Services=defaults){}
  async prepare(p:Provider,step:Step):Promise<Plan>{
-  if(!DEPLOYMENT_ENABLED)throw new Error('DEPLOYMENT LOCKED: FAST-2F 未授权链上写入。');
-  const s=this.store.load();const w=await walletState(p);assertStage(s,step,w.account);
+  if(!DEPLOYMENT_ENABLED)throw new Error('DEPLOYMENT LOCKED: 此构建未授权链上写入。');
+  assertOKX(p);const s=this.store.load();const w=await walletState(p);assertStage(s,step,w.account);
   try{
    const requestId=crypto.randomUUID();const built=await this.services.construct(s,step,w.account,requestId);
    const check=await this.services.verifyBoundary(p,built.tx,w.account);
@@ -19,8 +19,8 @@ export class Operator{
   }catch(e){this.store.stop(errorText(e));throw e;}
  }
  async submit(p:Provider,plan:Plan):Promise<string>{
-  if(!DEPLOYMENT_ENABLED)throw new Error('DEPLOYMENT LOCKED: FAST-2F 未授权链上写入。');
-  let s=this.store.load();assertStage(s,plan.step,plan.account);
+  if(!DEPLOYMENT_ENABLED)throw new Error('DEPLOYMENT LOCKED: 此构建未授权链上写入。');
+  assertOKX(p);let s=this.store.load();assertStage(s,plan.step,plan.account);
   try{
    if(Date.now()-Date.parse(plan.preparedAt)>60000)throw new Error('SIGNING BLOCKED: 预检已超过 60 秒，请停止并只读调查。');
    await this.services.sourceCheck();

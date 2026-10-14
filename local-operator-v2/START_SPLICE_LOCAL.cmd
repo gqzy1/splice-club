@@ -1,7 +1,7 @@
 @echo off
 setlocal
 cd /d "%~dp0"
-title SPLICE V2 LOCAL OPERATOR - 127.0.0.1:4180
+title AUTHORIZED V2 LOCAL OPERATOR - 127.0.0.1:4180
 where node >nul 2>nul
 if errorlevel 1 goto :missingnode
 node -e "const v=process.versions.node.split('.').map(Number); process.exit(v[0]>22||(v[0]===22&&v[1]>=12)?0:1)"
@@ -13,9 +13,7 @@ echo Installing locked dependencies. No remote startup script is executed.
 call npm ci --ignore-scripts --no-audit --no-fund
 if errorlevel 1 goto :failed
 :ready
-if exist dist\index.html goto :launch
-call npm run build
-if errorlevel 1 goto :failed
+if not exist dist\index.html goto :failed
 :launch
 node scripts\launch.mjs
 if errorlevel 1 goto :failed

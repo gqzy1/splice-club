@@ -22,7 +22,7 @@ const server=createServer(async(req,res)=>{
 });
 server.on('error',error=>{console.error('STOP: port 4180 is already in use or unavailable. Close the other operator first. Do not use another port.',error.message);process.exitCode=1;});
 server.listen(4180,'127.0.0.1',()=>{
- console.log('\nSPLICE V2 LOCAL OPERATOR: '+url+'\nKeep this window open. No transactions start automatically.\n');
+ console.log('\nAUTHORIZED V2 LOCAL OPERATOR: '+url+'\nKeep this window open. No transactions start automatically.\n');
  if(process.platform==='win32'){
   const candidates=[process.env.PROGRAMFILES,process.env['PROGRAMFILES(X86)'],process.env.LOCALAPPDATA].filter(Boolean).map(p=>path.join(p,'Google','Chrome','Application','chrome.exe'));
   const chrome=candidates.find(existsSync);

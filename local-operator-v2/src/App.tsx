@@ -40,8 +40,8 @@ export function App(){
  const ready=diagnostic?.status==='READINESS PASS'&&same(diagnostic.account,account)&&sourceOK;
  const writesAllowed=DEPLOYMENT_ENABLED&&!!state&&!state.halt&&ready&&accountOK&&!busy;
  const child=state?.entries.T04?.reads?.work;
- return <main><header><div className="eyebrow">SPLICE.CLUB / FAST-2F / V2 / LOCAL ONLY</div><h1>SPLICE V2<br/>OPERATOR</h1><p>本机 Chrome + OKX Wallet · 4 笔独立确认 · 仅 Stable Studionet</p></header>
- <div className="notice"><b>开发验收：V2 CANDIDATE · DEPLOYMENT LOCKED · NOT RUN LIVE</b><p>V2 尚未获交易授权，准备及签名入口已锁定。V1 操作台与旧记录保持独立。本包未部署、未签名、未发送交易。页面不会连续发起四笔交易。每次费用必须为 0；钱包弹窗出现非零费用或转账金额，请拒签并停止。不要清理本站存储、换端口或开另一份操作台。</p></div>
+ return <main><header><div className="eyebrow">SPLICE.CLUB / FAST-2G / V2 / LOCAL ONLY</div><h1>SPLICE V2<br/>OPERATOR</h1><p>本机 Chrome + OKX Wallet · 4 笔独立确认 · 仅 Stable Studionet</p></header>
+ <div className="notice"><b>AUTHORIZED V2 LOCAL OPERATOR · 总预算 4 笔（含失败） · NOT RUN LIVE</b><p>本批仅授权 T01–T04 各一次本机主动签名，无重试或第5笔。V1 操作台与旧记录保持独立。本包未部署、未签名、未发送交易。页面不会连续发起四笔交易。每次费用必须为 0；钱包弹窗出现非零费用或转账金额，请拒签并停止。不要清理本站存储、换端口或开另一份操作台。</p></div>
  {error&&<div role="alert" className="error">{error}</div>}
  {state?.halt&&<div className="error"><b>WRITES STOPPED</b><p>{state.halt}</p><p>请保留记录并导出证据。这里只允许查询既有 Hash，不提供重试发送或清空进度按钮。</p></div>}
  {lastHash&&<p className="hash">最近返回 Hash：{lastHash}</p>}
