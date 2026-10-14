@@ -1,17 +1,9 @@
-# Stable Studionet deployment manifest
+# SPLICE-V2 deployment
 
-- Network: Stable Studionet
-- Chain ID: 61999
-- RPC: https://studio.genlayer.com/api
-- SDK: genlayer-js 1.1.8
-- Runtime target: official GenVM v0.2.16
-- Test package: genlayer-test 0.29.2
-- Status: NOT_DEPLOYED
-- Contract address: null
-- Deployment transaction: null
-- Verified work ID: null
-- Real onchain E2E: NOT RUN LIVE
-- Source: contracts/creative_fusion.py
-- Source hash: see ../SOURCE_SHA256.txt
+Contract: `0x834f53cf56AE590F63cee321eE1A8CE566F3E9c4` on Stable Studionet, chain 61999.
 
-Read-only schema compatibility passed on Stable; it does not prove live consensus. No other network is used. Activation requires separate deployment authorization and real finalized evidence.
+[Contract Explorer](https://explorer-studio.genlayer.com/address/0x834f53cf56AE590F63cee321eE1A8CE566F3E9c4) · [Finalized deployment transaction](https://explorer-studio.genlayer.com/tx/0x4f5813763ed7f8486e82c64fbbb571c2f5198154360e9d8a9ed8c31cab6faaf4).
+
+Official source SHA256: `4a92361b30f2b504ec02e699a816bab78cac47504dafafa9a2ca158c947f07b1`. [Real evidence](../ONCHAIN_EVIDENCE.md).
+
+This release uses the existing deployment and sends no transactions. Exact GenVM node binary version is unverified. Offline runtime pinning is documented in README.

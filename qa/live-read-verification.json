@@ -1,0 +1,191 @@
+{
+  "checkedAt": "2026-10-14T15:53:43.793Z",
+  "endpoint": "https://studio.genlayer.com/api",
+  "chainId": 61999,
+  "contract": "0x834f53cf56AE590F63cee321eE1A8CE566F3E9c4",
+  "transaction": {
+    "hash": "0xa49f25baa0e1e97a2b1065b516e1f40f9eee60d2231e9eb6275355f932dc4db8",
+    "status": "FINALIZED",
+    "result": "MAJORITY_AGREE",
+    "execution": "SUCCESS",
+    "finalRound": {
+      "round": "1",
+      "leader_index": "0",
+      "votes_committed": "5",
+      "votes_revealed": "5",
+      "appeal_bond": "0",
+      "rotations_left": "2",
+      "result": 6,
+      "round_validators": [
+        "0x03D58A4DeF6fDFc032A56374785a5F571D07Bc11",
+        "0x772ffCd1dF6Cc566eC4b8d3f4F4f8eBbb6B36C84",
+        "0x76c25AFC12c75485703cCFfd0083AA6201455B25",
+        "0xBBb165E4c9d73a1493D363280f7067Cd07891dBE",
+        "0xec2Fb79cd12255Eb34886CEd7332f27B98DEe658"
+      ],
+      "validator_votes_hash": [
+        "0x8054b39848d19385700577b2d8b8d24f2ffa9c45b360a29b13a9a2dcdfae0b70",
+        "0xa058a7fadadf2be0a73dc655be9520223dddfb6f893eab41b2a48511a8d3703d",
+        "0x904da5da1a9c5b0a90c80a7c518ef8f6744e389181e491b224ba8e7bd2c9c249",
+        "0xd4b76317d4ea374027ef51652bf2368a695eb3eeaaaaed2cae0790100c9bfc2b",
+        "0x2b46f0c65dd865857eb3660e51b7a6ee8700ca3f9a244412ace4f45b4c02f65d"
+      ],
+      "validator_votes": [
+        1,
+        5,
+        2,
+        1,
+        1
+      ],
+      "validator_votes_name": [
+        "AGREE",
+        "IDLE",
+        "DISAGREE",
+        "AGREE",
+        "AGREE"
+      ]
+    }
+  },
+  "lineage": {
+    "parents": [
+      {
+        "category": "creature",
+        "creator": "0xEB56F245EFEceD0899b7e23697FeE512a39DBdCc",
+        "depth": 0,
+        "description": "A small beetle refracts moonlight through its prismatic shell. Its antennae sense rhythms and steer each colored beam to match the beat.",
+        "features": [
+          "prismatic shell refracts moonlight",
+          "antennae sense rhythms"
+        ],
+        "id": 1,
+        "kind": "seed",
+        "license": "PUBLIC-DERIVATION-V1",
+        "name": "Prism Beetle",
+        "parent_creators": [],
+        "parents": [],
+        "request_fingerprint": "725897c1a335834665f02f1de629a3b9977251068d30b1584b70c858c6964049",
+        "version": "SPLICE-V2"
+      },
+      {
+        "category": "object",
+        "creator": "0xc2b9b09D0250C52A10aD19e46BDE09c76eD898b8",
+        "depth": 0,
+        "description": "A portable loom weaves audible tones into threads. Each woven thread stores a vibration and releases its sound when a beam of light touches it.",
+        "features": [
+          "weaves tones into threads",
+          "light releases stored vibrations"
+        ],
+        "id": 2,
+        "kind": "seed",
+        "license": "PUBLIC-DERIVATION-V1",
+        "name": "Echo Loom",
+        "parent_creators": [],
+        "parents": [],
+        "request_fingerprint": "d05629ff2677a2dc0c940ae57aa13887836efe0c87ec4f86237f15a035a52d1c",
+        "version": "SPLICE-V2"
+      }
+    ],
+    "work": {
+      "bridge": "The beetle's prismatic shell provides the light source necessary to activate the Echo Loom's vibrational threads, converting rhythmic input into visual-sonic output.",
+      "category": "wildcard",
+      "creator": "0xEB56F245EFEceD0899b7e23697FeE512a39DBdCc",
+      "depth": 1,
+      "description": "This large coleopteran possesses a translucent, skeletal thorax that functions as a biological frame. Its antennae sense the rhythmic vibrations of the environment, causing its internal loom-like organs to weave these sounds into physical, iridescent threads. As the beetle's prismatic shell refracts moonlight into concentrated beams, the light strikes these internal threads, triggering the immediate release of stored sonic energy as a harmonized acoustic blast.",
+      "features": [
+        "Prismatic shell focuses moonlight into precise activation beams",
+        "Weaves environmental rhythms into tangible vibrational threads",
+        "Refracted light triggers threads to release high-frequency sonic pulses"
+      ],
+      "id": 3,
+      "input_hash": "c98e4165bf8e057eeeace262bfe74817353591eba01449716d8a645ecf01169e",
+      "kind": "fusion",
+      "license": "PUBLIC-DERIVATION-V1",
+      "name": "Prismatic Resonator Beetle",
+      "parent_creators": [
+        "0xEB56F245EFEceD0899b7e23697FeE512a39DBdCc",
+        "0xc2b9b09D0250C52A10aD19e46BDE09c76eD898b8"
+      ],
+      "parent_hashes": [
+        "2f038fbe2e0e9fd427109df16f0349c9f88ed6ff59eb2cbb9e974c57ec78c7b4",
+        "b4653e2ab30a149837327e2061df5093981193b7cbf4a77fd9eafdcb61e830d0"
+      ],
+      "parents": [
+        1,
+        2
+      ],
+      "request_fingerprint": "6b47dee6867eadd0d54fbaee3eafb35748063124b2f069ca63769a4772233c64",
+      "version": "SPLICE-V2"
+    }
+  },
+  "works": [
+    {
+      "category": "creature",
+      "creator": "0xEB56F245EFEceD0899b7e23697FeE512a39DBdCc",
+      "depth": 0,
+      "description": "A small beetle refracts moonlight through its prismatic shell. Its antennae sense rhythms and steer each colored beam to match the beat.",
+      "features": [
+        "prismatic shell refracts moonlight",
+        "antennae sense rhythms"
+      ],
+      "id": 1,
+      "kind": "seed",
+      "license": "PUBLIC-DERIVATION-V1",
+      "name": "Prism Beetle",
+      "parent_creators": [],
+      "parents": [],
+      "request_fingerprint": "725897c1a335834665f02f1de629a3b9977251068d30b1584b70c858c6964049",
+      "version": "SPLICE-V2"
+    },
+    {
+      "category": "object",
+      "creator": "0xc2b9b09D0250C52A10aD19e46BDE09c76eD898b8",
+      "depth": 0,
+      "description": "A portable loom weaves audible tones into threads. Each woven thread stores a vibration and releases its sound when a beam of light touches it.",
+      "features": [
+        "weaves tones into threads",
+        "light releases stored vibrations"
+      ],
+      "id": 2,
+      "kind": "seed",
+      "license": "PUBLIC-DERIVATION-V1",
+      "name": "Echo Loom",
+      "parent_creators": [],
+      "parents": [],
+      "request_fingerprint": "d05629ff2677a2dc0c940ae57aa13887836efe0c87ec4f86237f15a035a52d1c",
+      "version": "SPLICE-V2"
+    },
+    {
+      "bridge": "The beetle's prismatic shell provides the light source necessary to activate the Echo Loom's vibrational threads, converting rhythmic input into visual-sonic output.",
+      "category": "wildcard",
+      "creator": "0xEB56F245EFEceD0899b7e23697FeE512a39DBdCc",
+      "depth": 1,
+      "description": "This large coleopteran possesses a translucent, skeletal thorax that functions as a biological frame. Its antennae sense the rhythmic vibrations of the environment, causing its internal loom-like organs to weave these sounds into physical, iridescent threads. As the beetle's prismatic shell refracts moonlight into concentrated beams, the light strikes these internal threads, triggering the immediate release of stored sonic energy as a harmonized acoustic blast.",
+      "features": [
+        "Prismatic shell focuses moonlight into precise activation beams",
+        "Weaves environmental rhythms into tangible vibrational threads",
+        "Refracted light triggers threads to release high-frequency sonic pulses"
+      ],
+      "id": 3,
+      "input_hash": "c98e4165bf8e057eeeace262bfe74817353591eba01449716d8a645ecf01169e",
+      "kind": "fusion",
+      "license": "PUBLIC-DERIVATION-V1",
+      "name": "Prismatic Resonator Beetle",
+      "parent_creators": [
+        "0xEB56F245EFEceD0899b7e23697FeE512a39DBdCc",
+        "0xc2b9b09D0250C52A10aD19e46BDE09c76eD898b8"
+      ],
+      "parent_hashes": [
+        "2f038fbe2e0e9fd427109df16f0349c9f88ed6ff59eb2cbb9e974c57ec78c7b4",
+        "b4653e2ab30a149837327e2061df5093981193b7cbf4a77fd9eafdcb61e830d0"
+      ],
+      "parents": [
+        1,
+        2
+      ],
+      "request_fingerprint": "6b47dee6867eadd0d54fbaee3eafb35748063124b2f069ca63769a4772233c64",
+      "version": "SPLICE-V2"
+    }
+  ],
+  "capturedEvidenceMatch": true,
+  "writesSent": 0
+}

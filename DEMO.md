@@ -1,18 +1,9 @@
-# Playing SPLICE.CLUB
+# Using SPLICE.CLUB
 
-## Before deployment
+Open https://gqzy1.github.io/splice-club/ for the local Playground tutorial. Pick Moon Laundry, add Jelly Radio, activate the local machine, flip the result and inspect its parents. These are deterministic local examples with no chain transactions.
 
-Run `npm ci` and `npm run dev`. The empty gallery, status notice and disabled write button are deliberate. Open the seed form to draft an idea. `?w=1` displays the honest unverified demo state. No example wallet, work or transaction is fabricated.
+Open https://gqzy1.github.io/splice-club/?w=1 for the wallet-free Verified Onchain Example. Inspect Prismatic Resonator Beetle (#3), its bridge, traits, parent #1 and parent #2 and their creators. Open the fusion Explorer and raw evidence links. This route is read-only.
 
-## After deployment and activation
+For LIVE operation, exit the tutorial and check the LIVE label. Browse seeds, connect OKX or an EIP-1193 wallet, explicitly allow public derivation to register a seed, or select two different creators' seeds and request a fusion. Signing occurs only after your active action. A submitted hash can be rechecked after refresh without resubmission. Switching account or network invalidates the connection.
 
-1. Browse without connecting a wallet. Open a seed card to read its details and contribution address.
-2. Drag two seeds into the Playground or use “Splice me”. The two seed creators must be different addresses.
-3. Connect a browser wallet on Stable Studionet. Click “LET’S SPLICE” and confirm the real transaction.
-4. Follow submission, consensus and finalization. Do not submit again while a hash is waiting; use read-only recheck after interruption.
-5. A verified readback unlocks the reveal. Open “Follow its roots” to inspect both full parents and creator addresses.
-6. To contribute a seed, enter a name, description and 1–3 distinctive features. Explicitly choose public derivation permission and register onchain.
-
-`?w=1` opens the recorded real work and lineage once `verifiedWorkId` has been established through live evidence. It never fills the gallery with fixtures. Only tests import synthetic fixture data.
-
-V1 supports two seeds → one child. Fusions cannot become parents yet. There is no NFT mint, trade, token, image API or royalty flow.
+When the official RPC fails, the site shows timestamped captured evidence and disables wallet writes. It does not present snapshots as current chain state. Refresh retries live reading. No new transactions are required to assess the submitted example.

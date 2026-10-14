@@ -1,0 +1,33 @@
+{
+  "testedAt": "2026-10-14T16:02:53.836Z",
+  "url": "http://127.0.0.1:5173/splice-club/",
+  "results": [
+    {
+      "width": 1440,
+      "tutorial": "PASS",
+      "gallery": "PASS",
+      "lineage": "PASS",
+      "reload": "PASS",
+      "verifiedReadOnly": "PASS",
+      "rpcMode": "snapshot",
+      "explicitFallback": "PASS",
+      "overflow": false,
+      "pageErrors": [],
+      "chainWrites": 0
+    },
+    {
+      "width": 390,
+      "tutorial": "PASS",
+      "gallery": "PASS",
+      "lineage": "PASS",
+      "reload": "PASS",
+      "verifiedReadOnly": "PASS",
+      "rpcMode": "snapshot",
+      "explicitFallback": "PASS",
+      "overflow": false,
+      "pageErrors": [],
+      "chainWrites": 0
+    }
+  ],
+  "scope": "Headless Chromium; no real wallet signing; mobile emulation, not physical device"
+}

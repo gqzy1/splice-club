@@ -12,5 +12,5 @@ try{
  report.schema=await client.getContractSchemaForCode(code);
  report.status='READ_ONLY_SCHEMA_PASS';
 }catch(e){report.status='UNVERIFIED';report.error=String(e.message||e);}
-writeFileSync('STABLE_COMPATIBILITY.json',JSON.stringify(report,null,2)+'\n');
+writeFileSync('qa/stable-schema.json',JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify({status:report.status,chain:report.returnedChainId,error:report.error,schemaKeys:report.schema?Object.keys(report.schema):[]}));
